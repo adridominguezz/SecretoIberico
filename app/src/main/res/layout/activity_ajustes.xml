@@ -9,11 +9,100 @@
 
     <RelativeLayout
         android:layout_width="324dp"
-        android:layout_height="354dp"
-        android:layout_marginStart="30dp"
-        android:background="@color/gris"
+        android:layout_height="330dp"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintVertical_bias="0.491"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="234dp"
+            android:layout_height="281dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnIdioma"
+                android:onClick="abrirIdioma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/beige"
+                android:text="IDIOMA"
+                android:textColor="@color/gris"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnVolumenJuego"
+                android:onClick="abrirVolumenJuego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/beige"
+                android:text="VOLUMEN JUEGO"
+                android:textColor="@color/gris"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnVolumenMusica"
+                android:onClick="abrirVolumenMusica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/beige"
+                android:text="VOLUMEN MÚSICA"
+                android:textColor="@color/gris"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnVibracion"
+                android:onClick="abrirVibracion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/beige"
+                android:text="VIBRACIÓN"
+                android:textColor="@color/gris"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnAyuda"
+                android:onClick="abrirAyuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/beige"
+                android:text="AYUDA"
+                android:textColor="@color/gris"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnInicio"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="320dp"
+        android:backgroundTint="@color/gris"
+        android:onClick="volverInicio"
+        android:text="INICIO"
+        android:textColor="@color/blanco"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

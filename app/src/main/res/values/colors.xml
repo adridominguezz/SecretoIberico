@@ -2,6 +2,7 @@
 <resources>
     <color name="naranja">#f2654b</color>
     <color name="gris">#434243</color>
+    <color name="grisLight">#d9d9d9</color>
     <color name="beige">#fde1c0</color>
     <color name="naranjaLight">#f9ae91</color>
     <color name="naranjaDark">#802d05</color>
@@ -11,5 +12,4 @@
     <color name="marronSobre">#e2cb99</color>
     <color name="negro">#000000</color>
     <color name="blanco">#FFFFFF</color>
-
 </resources>
