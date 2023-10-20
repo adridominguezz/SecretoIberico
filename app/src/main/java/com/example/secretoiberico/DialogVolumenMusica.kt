@@ -1,59 +1,52 @@
 package com.example.secretoiberico
 
+import android.app.Dialog
+import android.content.Context
+import android.content.DialogInterface
+import android.media.AudioManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DialogVolumenMusica.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DialogVolumenMusica : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class DialogVolumenMusica : DialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val builder = AlertDialog.Builder(requireContext())
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dialog_volumen_musica, container, false)
-    }
+        val inflater = requireActivity().layoutInflater
+        val dialogView = inflater.inflate(R.layout.fragment_dialog_volumen_musica, null)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DialogVolumenMusica.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DialogVolumenMusica().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        val seekBarVolume = dialogView.findViewById<SeekBar>(R.id.seekBarVolume)
+
+        // Configura un AudioManager para controlar el volumen de la música
+        val audioManager = requireContext().getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+        // Configura el SeekBar para reflejar el volumen actual
+        seekBarVolume.max = maxVolume
+        seekBarVolume.progress = currentVolume
+
+        // Define el Listener para el SeekBar
+        seekBarVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                // Cuando cambia el valor del SeekBar, ajusta el volumen
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
             }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // Puedes agregar lógica adicional si es necesario cuando comienza el seguimiento del SeekBar
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // Puedes agregar lógica adicional si es necesario cuando se detiene el seguimiento del SeekBar
+            }
+        })
+
+        builder.setView(dialogView)
+
+        return builder.create()
     }
 }

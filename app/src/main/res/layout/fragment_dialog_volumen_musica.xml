@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentVolumenMusica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DialogVolumenMusica"
-    android:background="@color/grisLight"
-    android:visibility="gone"
-    >
+    android:background="@drawable/rounded_corners"
+    android:visibility="visible"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="172dp"
-        android:text="Dialog prueba" />
+        android:layout_height="wrap_content"
+        android:text="VOLUMEN JUEGO"
+        android:textColor="@color/blanco"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_margin="5dp"
+        android:textStyle="bold"/>
 
-</FrameLayout>
+    <SeekBar
+        android:id="@+id/seekBarVolume"
+        style="@style/CustomSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="101dp" />
+
+</LinearLayout>
