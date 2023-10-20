@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.DialogInterface
 import android.media.AudioManager
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -12,12 +14,12 @@ import androidx.fragment.app.DialogFragment
 
 
 class DialogVolumenMusica : DialogFragment() {
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = AlertDialog.Builder(requireContext())
 
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        val builder = AlertDialog.Builder(requireContext())
         val inflater = requireActivity().layoutInflater
         val dialogView = inflater.inflate(R.layout.fragment_dialog_volumen_musica, null)
-
         val seekBarVolume = dialogView.findViewById<SeekBar>(R.id.seekBarVolume)
 
         // Configura un AudioManager para controlar el volumen de la música
@@ -48,5 +50,11 @@ class DialogVolumenMusica : DialogFragment() {
         builder.setView(dialogView)
 
         return builder.create()
+
     }
+//      NO FUNCIONA
+//    fun cerrarVolumenJuego(view: View) {
+//        dismiss()
+//    }
+
 }

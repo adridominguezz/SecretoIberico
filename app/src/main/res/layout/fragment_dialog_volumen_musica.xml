@@ -1,28 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragmentVolumenMusica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DialogVolumenMusica"
     android:background="@drawable/rounded_corners"
+    android:orientation="vertical"
     android:visibility="visible"
-    android:orientation="vertical">
+    tools:context=".DialogVolumenMusica">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VOLUMEN JUEGO"
-        android:textColor="@color/blanco"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        android:layout_margin="5dp"
-        android:textStyle="bold"/>
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="VOLUMEN JUEGO"
+            android:textAlignment="center"
+            android:textColor="@color/blanco"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnCerrarVolumenJuego"
+            android:onClick="cerrarVolumenJuego"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparente"
+            android:src="@android:drawable/ic_delete"
+            app:tint="@color/blanco" />
+
+
+    </RelativeLayout>
+
 
     <SeekBar
         android:id="@+id/seekBarVolume"
         style="@style/CustomSeekBar"
         android:layout_width="match_parent"
-        android:layout_height="101dp" />
+        android:layout_height="78dp" />
 
 </LinearLayout>
