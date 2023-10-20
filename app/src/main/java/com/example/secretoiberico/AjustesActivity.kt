@@ -12,7 +12,9 @@ class AjustesActivity : AppCompatActivity() {
     }
 
     fun abrirIdioma(view: View) {}
-    fun abrirVolumenJuego(view: View) {}
+    fun abrirVolumenJuego(view: View) {
+        
+    }
     fun abrirVolumenMusica(view: View) {}
     fun abrirVibracion(view: View) {}
     fun abrirAyuda(view: View) {}
